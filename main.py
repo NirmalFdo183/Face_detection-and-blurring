@@ -23,8 +23,8 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
             w = int(w * W)
             h = int(h * H)
             
-            img = cv2.rectangle(img, (x1, y1), (x1 + w, y1 + h), (0, 255, 0), 10)
+            img[y1:y1+h, x1:x1+h, :] = cv2.blur(img[y1:y1+h, x1:x1+h, :], (50,50))
             
     cv2.imshow('img', img)
     cv2.waitKey(0)
-    cv2.destroyAllWindows('img')
+    cv2.destroyAllWindows()

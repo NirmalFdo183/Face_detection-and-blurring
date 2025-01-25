@@ -1,5 +1,11 @@
+import os.path
+
 import cv2
 import mediapipe as mp
+
+output_dir = "./output"
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 img = cv2.imread('portrait.jpg')
 
@@ -25,6 +31,4 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
             
             img[y1:y1+h, x1:x1+h, :] = cv2.blur(img[y1:y1+h, x1:x1+h, :], (50,50))
             
-    cv2.imshow('img', img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+cv2.imwrite(os.path.join(output_dir,'output.png'), img)

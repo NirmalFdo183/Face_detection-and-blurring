@@ -3,7 +3,7 @@ import os.path
 import cv2
 import mediapipe as mp
 
-output_dir = "./output"
+output_dir = "/Users/nirmalfernando/PycharmProjects/Face_detection-and-blurring/output"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
